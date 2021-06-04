@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+import { BasketContext } from './context/BasketContext';
+import { BasketReducer } from './reducer/BasketReducer';
+import { Basket } from './views/Basket';
 
 function App() {
+  const [basketState, basketDispatch] = useReducer(BasketReducer, { items: [] });
   return (
-    <h1>Hello World</h1>
+    <BasketContext.Provider value={{ basket: basketState, basketDispatch }}>
+      <Basket />
+    </BasketContext.Provider>
   );
 }
 
