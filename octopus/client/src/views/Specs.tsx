@@ -1,5 +1,4 @@
 import React from 'react';
-import Expandable from '../components/Expandable';
 import { Product } from '../state';
 
 type SpecProps = {
@@ -52,9 +51,9 @@ const Specs = ({ product }: SpecProps) => {
   }
 
   return (
-    <div className="App-item-specs">
+    <div className="octopus-item-specs">
       <div className="heading">Specifications</div>
-      <Expandable element={specsTable()} showInitial={true} />
+      {specsTable()}
     </div>
   );
 }

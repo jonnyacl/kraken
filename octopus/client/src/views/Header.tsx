@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import SidebarSelector from '../components/SidebarSelector';
+import React from 'react';
+import basket from "../images/basket.svg";
 
 const Header = () => {
-
-  const [showSidebar, setShowSidebar] = useState(false);
   return (
     <header>
-      <div className="App-header">
+      <div className="octopus-header">
         <div className="name">
           octopus energy
         </div>
-        <SidebarSelector showSidebar={showSidebar} onClick={() => setShowSidebar(!showSidebar)}/>
+        <div className="sidebar">
+          <img src={basket} alt="basket" />
+        </div>
+
       </div>
     </header>
   );

@@ -35,6 +35,20 @@ export const BasketReducer = (state: Basket, action: BasketAction) => {
                 console.error('Nothing to remove');
                 return state;
             }
+        case "ITEMS_CLEARED":
+            if (existingItems.length) {
+                updatedItems = existingItems[0];
+                updatedItems.quantity = 0;
+            } else {
+                updatedItems = {
+                    id: data.id,
+                    quantity: 0,
+                };
+            }
+            allItems.push(updatedItems);
+            return {
+                items: allItems,
+            };
         default:
             console.error('Invalid action type', action.type);
             return state;

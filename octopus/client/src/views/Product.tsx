@@ -2,15 +2,19 @@ import React from 'react';
 import Cart from './Cart';
 import Description from './Description';
 import Specs from './Specs';
-import bulb from '../assets/bulb.png'
 import { Product } from '../state';
 
-const ProductView = (product: Product) => {
+type ProductProps = {
+  product: Product,
+  onChangeProduct: Function | undefined,
+}
+
+const ProductView = ({ product }: ProductProps) => {
 
   return (
-    <div className="App-item">
+    <div className="octopus-item">
       <div className="image">
-        <img src={bulb} alt="bulb"></img>
+        <img src={product.imgUrl} alt="bulb"></img>
       </div>
       <div className="title">
         {product.name}
@@ -18,7 +22,7 @@ const ProductView = (product: Product) => {
       <div className="description">
         {product.description}
       </div>
-      <Cart itemId={product.id} item={product} price={product.price} currency="£" />
+      <Cart productId={product.id} price={product.price} currency="£" />
       <Description
         text={product.description}
       />

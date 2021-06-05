@@ -1,5 +1,4 @@
 import React from 'react';
-import Expandable from '../components/Expandable';
 
 type DescriptionProps = {
   text: string
@@ -8,9 +7,9 @@ type DescriptionProps = {
 const Description = ({ text }: DescriptionProps) => {
 
   return (
-    <div className="App-item-description">
+    <div className="octopus-item-description">
       <div className="heading">Description</div>
-      <Expandable element={text} showInitial={false} />
+      <div className="content">{text}</div>
     </div>
   );
 }

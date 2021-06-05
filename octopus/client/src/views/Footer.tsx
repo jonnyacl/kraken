@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
 
   return (
-    <div className="App-footer">
+    <div className="octopus-footer">
       <p>
         Octopus Energy Ltd is a company registered in England and Wales.
       </p>

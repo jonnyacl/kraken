@@ -2,6 +2,10 @@ export interface Basket {
     items: BasketItem[],
 }
 
+export interface ProductState {
+    products: Product[],
+}
+
 export interface BasketItem {
     id: string,
     quantity: number,
