@@ -11,6 +11,14 @@
     padding-top: 10px;
 }
 
+span {
+    color: #FF0B7A;
+    border: none;
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+
 .cart-button button:hover {
     cursor: pointer;
 }
@@ -33,6 +41,8 @@
         justify-content: center;
         font-size: calc(10px + 2vmin);
         width: 100%;
+        position: fixed;
+        background-color: $base-color;
 
         .sidebar {
             margin-right: 10px;
@@ -45,6 +55,18 @@
                 -webkit-filter: invert(.75);
                 /* safari 6.0 - 9.0 */
                 filter: invert(.75);
+            }
+
+            .count {
+                position: absolute;
+                font-size: xx-small;
+                background-color: $octopus-pink;
+                width: 12px;
+                height: 12px;
+                border-radius: 10px;
+                text-align: center;
+                top: 22px;
+                right: 20px;
             }
 
             .clicker {
@@ -70,6 +92,7 @@
 
     .product {
         background-color: $secondary-color;
+        margin-top: 30px;
 
         .title {
             padding-left: 20px;
@@ -173,14 +196,7 @@
                 cursor: pointer;
             }
 
-            .emptyCart {
-                background-color: $base-color;
-                color: #FF0B7A;
-                border: none;
-                cursor: pointer;
-                text-decoration-line: underline;
-                text-decoration-style: dotted;
-            }
+
         }
 
         .specs {
@@ -194,6 +210,10 @@
                 table {
                     border-collapse: separate;
                     border-spacing: 0 15px;
+
+                    td {
+                        padding: 5px;
+                    }
                 }
             }
         }
@@ -215,4 +235,68 @@
     font-size: smaller;
     padding: 10px;
     color: $highlight;
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.modal {
+    &-hidden {
+        display: none;
+    }
+
+    &-shown {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        top: 40px;
+        width: 80%;
+        overflow: auto;
+        margin: 0px 0px 0px 50px;
+        font-size: smaller;
+
+        background-color: $highlight;
+        border-radius: 5px;
+        box-shadow: 0 4px 16px 0 $lowlight, 0 0px 4px 0 $lowlight;
+
+        .content {
+            padding: 10px;
+            animation-name: animatetop;
+            animation-duration: 0.2s;
+
+            button {
+                background-color: $octopus-pink;
+                border: none;
+                border-radius: 5px;
+                padding-left: 20px;
+                padding-right: 20px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                color: white;
+                width: 100%;
+                cursor: pointer;
+                opacity: 1;
+            }
+
+            div {
+                opacity: 1;
+            }
+
+            .close {
+                float: right;
+                padding: 10px;
+            }
+        }
+
+    }
+
 }

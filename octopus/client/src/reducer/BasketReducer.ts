@@ -11,6 +11,7 @@ export const BasketReducer = (state: Basket, action: BasketAction) => {
     const allItems = state.items.filter(i => i.id !== data.id);
     let updatedItems;
     console.log('BASKET REDUCER', action);
+    console.log('preaction', state);
     switch (action.type) {
         case 'ITEMS_ADDED':
             if (existingItems.length) {
@@ -20,23 +21,11 @@ export const BasketReducer = (state: Basket, action: BasketAction) => {
                 updatedItems = data;
             }
             allItems.push(updatedItems);
+            console.log('postaction', { items: allItems });
             return {
                 showCart: true,
                 items: allItems,
             };
-        case 'ITEMS_REMOVED':
-            if (existingItems.length) {
-                updatedItems = existingItems[0];
-                updatedItems.quantity = updatedItems.quantity + data.quantity;
-                allItems.push(updatedItems);
-                return {
-                    showCart: true,
-                    items: allItems,
-                };
-            } else {
-                console.error('Nothing to remove');
-                return state;
-            }
         case "ITEMS_CLEARED":
             return {
                 showCart: true,

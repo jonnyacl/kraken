@@ -8,10 +8,9 @@ const Header = () => {
   const { basket, basketDispatch } = useContext(BasketContext);
   const { productState } = useContext(ProductContext);
   const basketItems = basket.items;
-  console.log('products', productState.products);
-  console.log('items', basketItems);
   let basketCount = 0;
   let basketPrice = 0;
+  console.log(basketItems)
   basketItems.forEach(b => {
     basketCount = basketCount + b.quantity;
     const prod = productState.products.filter(p => p.id === b.id);
@@ -29,15 +28,29 @@ const Header = () => {
       <div className="name">
         <img src={title} alt="name" />
       </div>
-      <div className="sidebar">
-        <img src={basketImage} alt="basket" onClick={() => setShowCart(!showCart)} />
+      <div className="sidebar" onClick={() => setShowCart(!showCart)}>
+        <img src={basketImage} alt="basket" />
+        {basketCount > 0 && <div className="count">{basketCount}</div>}
       </div>
-      {basketItems && showCart &&
-        <div className="cart-modal">
-          <div>{basketCount} items £{basketPrice / 100}</div>
-          {basketCount > 0 && <button className="emptyCart" onClick={() => { basketDispatch({ type: "ITEMS_CLEARED", data: { id: "", quantity: 0 } }) }}>Empty</button>}
+      <div className={showCart ? "modal-shown" : "modal-hidden"}>
+        <div className="content">
+          <div>Basket</div>
+          {basketItems && <ul>
+            {basketItems.map(b => {
+              const prods = productState.products.filter(p => p.id === b.id);
+              if (prods?.length) {
+                const prod = prods[0];
+                return (<li key={prod.id}>{prod.name}: qty {b.quantity} - £{(prod.price * b.quantity) / 100}</li>)
+              }
+              return null;
+            })}
+          </ul>}
+          {basketCount > 0 ? <button className="emptyCart" onClick={() => { basketDispatch({ type: "ITEMS_CLEARED", data: { id: "", quantity: 0 } }) }}>Clear</button> : <div>Empty</div>}
+          <div className="close">
+            <span onClick={() => setShowCart(false)}>Close</span>
+          </div>
         </div>
-      }
+      </div>
     </header>
   );
 }

@@ -16,10 +16,14 @@ const Cart = ({ productId, price, currency = "GBP" }: CartProps) => {
   const { productState } = useContext(ProductContext);
   const basketProduct = productState.products.filter(p => p.id === productId)[0];
 
+  // if state is modified, basketDispatch executes as intended ie once. if not modified it executes twice
+  // after basketDispatch error occurs
+  // console does not log one execution either, just one - appears to be race condition 
+
   const [count, setCount] = useState(1);
 
   const handleAddToCart = () => {
-    console.log(`Adding ${count} ${basketProduct.name}s to Cart for ${currency}${price * count}`);
+    console.log(`Adding ${count} ${basketProduct.name}s to Cart for ${currency}${price * count / 100}`);
     basketDispatch({
       type: "ITEMS_ADDED",
       data: {
@@ -47,7 +51,7 @@ const Cart = ({ productId, price, currency = "GBP" }: CartProps) => {
           onMinus={count > 1 ? () => setCount(count - 1) : () => { console.log("Cannot go below 1") }}
         />
       </div>
-      <CartButton onClick={() => handleAddToCart()} />
+      <CartButton onClick={handleAddToCart} />
     </div>
   );
 }
