@@ -1,5 +1,6 @@
 export interface Basket {
     items: BasketItem[],
+    showCart: boolean,
 }
 
 export interface ProductState {

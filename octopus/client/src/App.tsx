@@ -8,7 +8,7 @@ import Footer from './views/Footer';
 import Header from './views/Header';
 
 function App() {
-  const [basketState, basketDispatch] = useReducer(BasketReducer, { items: [] });
+  const [basketState, basketDispatch] = useReducer(BasketReducer, { items: [], showCart: false });
   const [productState, productsDispatch] = useReducer(ProductReducer, {
     products: [
       {

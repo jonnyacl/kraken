@@ -21,6 +21,7 @@ export const BasketReducer = (state: Basket, action: BasketAction) => {
             }
             allItems.push(updatedItems);
             return {
+                showCart: true,
                 items: allItems,
             };
         case 'ITEMS_REMOVED':
@@ -29,6 +30,7 @@ export const BasketReducer = (state: Basket, action: BasketAction) => {
                 updatedItems.quantity = updatedItems.quantity + data.quantity;
                 allItems.push(updatedItems);
                 return {
+                    showCart: true,
                     items: allItems,
                 };
             } else {
@@ -36,18 +38,9 @@ export const BasketReducer = (state: Basket, action: BasketAction) => {
                 return state;
             }
         case "ITEMS_CLEARED":
-            if (existingItems.length) {
-                updatedItems = existingItems[0];
-                updatedItems.quantity = 0;
-            } else {
-                updatedItems = {
-                    id: data.id,
-                    quantity: 0,
-                };
-            }
-            allItems.push(updatedItems);
             return {
-                items: allItems,
+                showCart: true,
+                items: [],
             };
         default:
             console.error('Invalid action type', action.type);
