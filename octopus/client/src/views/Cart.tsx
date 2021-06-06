@@ -40,7 +40,7 @@ const Cart = ({ productId, price, currency = "GBP" }: CartProps) => {
   }
 
   return (
-    <div className="octopus-item-cart">
+    <div className="cart">
       <div className="pricerow">
         <div className="pounds">{currency}{pounds}</div>
         <div className="pence">.{pence}</div>
@@ -57,9 +57,8 @@ const Cart = ({ productId, price, currency = "GBP" }: CartProps) => {
           <button className="emptyCart" onClick={() => { basketDispatch({ type: "ITEMS_CLEARED", data: { id: productId, quantity: 0 } }) }}>Empty Cart</button>
           <button className="emptyCart" onClick={() => setShowCart(false)}>Hide</button>
         </div>
-        : <div>
-          <button className="emptyCart" onClick={() => setShowCart(true)}>Show Cart</button>
-        </div>
+        :
+        <span className="emptyCart" onClick={() => setShowCart(true)}>Show Cart</span>
       }
     </div>
   );

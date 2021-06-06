@@ -12,7 +12,7 @@ type ProductProps = {
 const ProductView = ({ product }: ProductProps) => {
 
   return (
-    <div className="octopus-item">
+    <div className="product">
       <div className="image">
         <img src={product.imgUrl} alt="bulb"></img>
       </div>

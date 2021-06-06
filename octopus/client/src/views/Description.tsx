@@ -7,7 +7,7 @@ type DescriptionProps = {
 const Description = ({ text }: DescriptionProps) => {
 
   return (
-    <div className="octopus-item-description">
+    <div className="description">
       <div className="heading">Description</div>
       <div className="content">{text}</div>
     </div>

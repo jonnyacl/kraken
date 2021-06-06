@@ -21,7 +21,7 @@ const Specs = ({ product }: SpecProps) => {
 
   const specsTable = (): React.ReactNode => {
     return (
-      <div className="specs">
+      <div className="details">
         <table>
           <tbody>
             {brand && <tr>
@@ -51,7 +51,7 @@ const Specs = ({ product }: SpecProps) => {
   }
 
   return (
-    <div className="octopus-item-specs">
+    <div className="specs">
       <div className="heading">Specifications</div>
       {specsTable()}
     </div>

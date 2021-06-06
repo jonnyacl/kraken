@@ -11,7 +11,7 @@ const Quantity = ({ count, onAdd, onMinus }: QuantityProps) => {
   return (
     <div className="quantity">
       <div className="qty">QTY</div>
-      <button className="qtyChange" onClick={onMinus}>-</button>
+      <button className="qtyChange--down" onClick={onMinus}>-</button>
       <div className="count">{count}</div>
       <button className="qtyChange" onClick={onAdd}>+</button>
     </div>
