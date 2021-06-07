@@ -10,6 +10,7 @@ export const ProductReducer = (state: ProductState, action: ProductAction) => {
     console.log('PRODUCT REDUCER', action);
     switch (action.type) {
         case 'PRODUCTS_FETCHED':
+            console.log('data', data);
             return {
                 products: data,
             }

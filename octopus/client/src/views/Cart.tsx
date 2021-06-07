@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import Quantity from '../components/Quantity';
 import CartButton from '../components/CartButton';
 import { BasketContext } from '../context/BasketContext';
@@ -15,11 +15,6 @@ const Cart = ({ productId, price, currency = "GBP" }: CartProps) => {
   const { basketDispatch } = useContext(BasketContext);
   const { productState } = useContext(ProductContext);
   const basketProduct = productState.products.filter(p => p.id === productId)[0];
-
-  // if state is modified, basketDispatch executes as intended ie once. if not modified it executes twice
-  // after basketDispatch error occurs
-  // console does not log one execution either, just one - appears to be race condition 
-
   const [count, setCount] = useState(1);
 
   const handleAddToCart = () => {

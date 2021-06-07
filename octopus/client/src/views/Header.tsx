@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { BasketContext } from '../context/BasketContext';
 import { ProductContext } from '../context/ProductContext';
 import basketImage from "../images/basket.svg";
@@ -10,7 +10,6 @@ const Header = () => {
   const basketItems = basket.items;
   let basketCount = 0;
   let basketPrice = 0;
-  console.log(basketItems)
   basketItems.forEach(b => {
     basketCount = basketCount + b.quantity;
     const prod = productState.products.filter(p => p.id === b.id);

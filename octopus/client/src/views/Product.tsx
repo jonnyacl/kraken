@@ -1,4 +1,3 @@
-import React from 'react';
 import Cart from './Cart';
 import Description from './Description';
 import Specs from './Specs';
