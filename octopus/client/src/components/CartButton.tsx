@@ -7,7 +7,7 @@ type CartButtonProps = {
 const CartButton = ({ onClick }: CartButtonProps) => {
 
   return (
-    <button className="cartButton" onClick={onClick}>Add to cart</button>
+    <button data-testid="countbutton" className="cartButton" onClick={onClick}>Add to cart</button>
   );
 }
 

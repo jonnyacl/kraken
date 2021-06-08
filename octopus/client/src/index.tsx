@@ -3,6 +3,6 @@ import './index.scss';
 import App from './App';
 
 ReactDOM.render(
-  <App />,
+  <App initialProducts={[]} />,
   document.getElementById('root')
 );
