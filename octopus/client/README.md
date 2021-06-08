@@ -6,6 +6,8 @@ Simple single page application using useReducer and useContext hooks to manage g
 Add/remove items to a cart. Items fetched from graphQL server.\
 Built with mobile first styling, see styles/web and styles/mobile
 
+Please ensure graphQL server is running by following README in root directory.
+
 ## Available Scripts
 
 In the project directory, you can run:
