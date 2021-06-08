@@ -1,82 +1,178 @@
 @media only screen and (min-width: 768px) {
-    .cart-button {
-        margin: 0 auto;
 
-        button {
-            background-color: $octopus-pink;
-            border: none;
-            border-radius: 5px;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            color: white;
-            width: 200px;
-        }
-    }
+    .octopus {
+        header {
+            border-top: 10px;
+            border-top-color: $octopus-pink;
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            background-color: $base-color;
+            width: 100%;
 
-    &-item {
+            .sidebar {
+                margin-right: 10px;
+                cursor: pointer;
+                float: right;
+                position: absolute;
+                top: 10px;
+                right: 10px;
 
-        &-cart {
-            background-color: $secondary-color;
-            text-align: center;
-
-            .pricerow {
-                .pounds {
-                    padding-top: 20px;
-                    float: left;
-                    font-weight: bold;
-                    font-size: larger;
+                img {
+                    width: 20px;
+                    height: 20px;
+                    -webkit-filter: invert(.75);
+                    /* safari 6.0 - 9.0 */
+                    filter: invert(.75);
+                    position: absolute;
+                    top: 3px;
+                    right: 0px;
                 }
 
-                .pence {
-                    padding-top: 21px;
-                    float: left;
-                    font-weight: bold;
-                }
-
-                .quantity {
+                .count {
+                    font-size: xx-small;
+                    background-color: $octopus-pink;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 10px;
                     text-align: center;
-                    float: right;
+                    position: absolute;
+                    top: 15px;
+                    right: 10px;
+                }
 
-                    .qty {
-                        font-weight: bold;
-                        color: $highlight;
-                    }
-
-                    .qtyChange {
-                        float: left;
-                        margin: 10px;
-                    }
-
-                    .count {
-                        float: left;
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                    }
+                .clicker {
+                    border-bottom: 2pt solid white;
+                    border-radius: 2px;
+                    width: 25px;
+                    height: 5px;
                 }
             }
 
-            padding: 10px;
+            .name {
+                img {
+                    width: 50%;
+                    -webkit-filter: invert(.75);
+                    /* safari 6.0 - 9.0 */
+                    filter: invert(.75);
+                }
+
+                padding: 10px;
+                float: left;
+                left: 0;
+            }
         }
 
-        &-performance {
-            padding: 10px;
-            background-color: $base-color;
+        .product {
+            margin: 0 auto;
 
-            .performance-graph {
-                padding-top: 10px;
-                padding-bottom: 10px;
+            .image {
+                margin-top: 60px;
+                max-width: 350px;
+            }
 
-                [class*="recharts-wrapper"] {
-                    height: 500px !important;
-                    width: 500px !important;
+            .blurb {
+                padding-top: 20px;
+            }
+
+            .headline {
+                display: flex;
+                align-items: center;
+
+                .title {
+                    padding: 0;
                 }
 
-                [class*="recharts-surface"] {
-                    height: 500px !important;
-                    width: 500px !important;
+                .description {
+                    padding: 0;
+                    max-width: 300px;
+                    margin-left: 20px;
                 }
+            }
+
+            .cart {
+                background-color: $base-color;
+                text-align: center;
+                padding: 0px;
+                padding-bottom: 50px;
+
+                .pricerow {
+                    margin-left: 20px;
+                    display: block;
+
+                    .cost {
+                        display: flex;
+                        float: none;
+
+                        .pounds {
+                            padding-left: 10px;
+                            padding-top: 20px;
+                            font-weight: bold;
+                            font-size: larger;
+                            float: left;
+                        }
+
+                        .pence {
+                            padding-top: 21px;
+                            font-weight: bold;
+                            float: right;
+                        }
+                    }
+
+                    .quantity {
+                        text-align: center;
+                        float: none;
+
+                        .qty {
+                            font-weight: bold;
+                            color: $highlight;
+                            float: left;
+                            padding-top: 10px;
+                        }
+
+                        .web {
+
+                            display: flex;
+
+                            .qtyChange {
+                                float: right;
+                                margin: 10px;
+                                float: none;
+
+                                &--down {
+                                    float: left;
+                                    margin: 10px;
+                                    background-color: $lowlight;
+                                }
+                            }
+
+                            .count {
+                                float: left;
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                                float: none;
+                            }
+                        }
+                    }
+                }
+
+                .cartButton {
+                    float: left;
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+
+.modal {
+    &-shown {
+        width: 400px;
+
+        .content {
+            .emptyCart {
+                width: 200px;
             }
         }
     }

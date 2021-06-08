@@ -39,7 +39,6 @@ span {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: calc(10px + 2vmin);
         width: 100%;
         position: fixed;
         background-color: $base-color;
@@ -48,6 +47,9 @@ span {
             margin-right: 10px;
             cursor: pointer;
             float: right;
+            position: absolute;
+            top: 10px;
+            right: 10px;
 
             img {
                 width: 20px;
@@ -55,18 +57,21 @@ span {
                 -webkit-filter: invert(.75);
                 /* safari 6.0 - 9.0 */
                 filter: invert(.75);
+                position: absolute;
+                top: 3px;
+                right: 0px;
             }
 
             .count {
-                position: absolute;
                 font-size: xx-small;
                 background-color: $octopus-pink;
                 width: 12px;
                 height: 12px;
                 border-radius: 10px;
                 text-align: center;
-                top: 22px;
-                right: 20px;
+                position: absolute;
+                top: 15px;
+                right: 10px;
             }
 
             .clicker {
@@ -107,10 +112,14 @@ span {
             font-size: larger;
         }
 
-        .description {
+        .blurb {
+            color: $highlight;
             padding-left: 20px;
-            padding-right: 20px;
             padding-bottom: 20px;
+        }
+
+        .description {
+            padding: 20px;
 
             .heading {
                 padding-bottom: 10px;
@@ -201,7 +210,6 @@ span {
                 cursor: pointer;
             }
 
-
         }
 
         .specs {
@@ -220,16 +228,6 @@ span {
                         padding: 5px;
                     }
                 }
-            }
-        }
-
-        .performance {
-            padding: 20px;
-            background-color: $base-color;
-
-            &-graph {
-                padding-top: 10px;
-                padding-bottom: 10px;
             }
         }
     }
@@ -264,6 +262,7 @@ span {
         position: fixed;
         z-index: 1;
         top: 40px;
+        right: 10px;
         width: 80%;
         overflow: auto;
         margin: 0px 0px 0px 50px;
@@ -301,7 +300,5 @@ span {
                 padding: 10px;
             }
         }
-
     }
-
 }

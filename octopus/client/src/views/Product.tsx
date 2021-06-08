@@ -12,14 +12,16 @@ const ProductView = ({ product }: ProductProps) => {
 
   return (
     <div className="product">
-      <div className="image">
-        <img src={product.imgUrl} alt="bulb"></img>
-      </div>
-      <div className="title">
-        {product.name}
-      </div>
-      <div className="description">
-        {product.description}
+      <div className="headline">
+        <div className="image">
+          <img src={product.imgUrl} alt="bulb"></img>
+        </div>
+        <div className="title">
+          {product.name}
+        </div>
+        <div className="blurb">
+          {product.power} {'//'} Packet of {product.quantity}
+        </div>
       </div>
       <Cart productId={product.id} price={product.price} currency="£" />
       <Description

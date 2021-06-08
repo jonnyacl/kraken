@@ -38,15 +38,18 @@ const Cart = ({ productId, price, currency = "GBP" }: CartProps) => {
   return (
     <div className="cart">
       <div className="pricerow">
-        <div className="pounds">{currency}{pounds}</div>
-        <div className="pence">.{pence}</div>
+        <div className="cost">
+          <div className="pounds">{currency}{pounds}</div>
+          <div className="pence">.{pence}</div>
+        </div>
         <Quantity
           count={count}
           onAdd={() => setCount(count + 1)}
           onMinus={count > 1 ? () => setCount(count - 1) : () => { console.log("Cannot go below 1") }}
         />
+        <CartButton onClick={handleAddToCart} />
       </div>
-      <CartButton onClick={handleAddToCart} />
+
     </div>
   );
 }
